@@ -17,7 +17,7 @@ class AgeGender(object):
 		self.cls_  = {0:"M",1:"F"}
 
 	def predict(self, img):
-		image = cv2.imread(img)
+		image = cv2.imread(img, cv2.IMREAD_COLOR)
 		img_blob_age    = cv2.dnn.blobFromImage(image,   self.scale, (64, 64),   swapRB=True, crop=False)
 		img_blob_gender = cv2.dnn.blobFromImage(image,   self.scale, (128, 128), swapRB=True, crop=False)
 		self.ageNet.setInput(img_blob_age)
